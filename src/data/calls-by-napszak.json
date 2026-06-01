@@ -1,0 +1,8 @@
+[
+  { "period": "Éjjel (0–6)", "calls": 38 },
+  { "period": "Reggel (6–10)", "calls": 52 },
+  { "period": "Délelőtt (10–14)", "calls": 44 },
+  { "period": "Délután (14–18)", "calls": 61 },
+  { "period": "Este (18–22)", "calls": 47 },
+  { "period": "Késő este (22–24)", "calls": 29 }
+]
