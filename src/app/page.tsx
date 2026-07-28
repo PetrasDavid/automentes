@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex flex-1 flex-col pb-[5.5rem] sm:pb-0">
+      <main id="main-content" className="flex flex-1 flex-col pb-[5.5rem] sm:pb-0">
         <Hero />
         <Services />
         <WhyUs />

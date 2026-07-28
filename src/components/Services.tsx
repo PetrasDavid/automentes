@@ -1,17 +1,12 @@
-import { Car, Truck, Battery, CircleDot, Package } from "lucide-react";
+import { Car, Battery, CircleDot } from "lucide-react";
 
 const main = {
-  title: "Személyautó mentés",
+  title: "Személygépkocsi mentés",
   desc: "Roncsmentő vagy plató — ahogy a helyzet kéri. A járművet rögzítjük, nem „vonszoljuk”.",
   icon: Car,
 } as const;
 
 const rest = [
-  {
-    title: "Furgonmentés",
-    desc: "Teherbírás szerinti járművel.",
-    icon: Truck,
-  },
   {
     title: "Bikázás",
     desc: "Akkumulátor indítás a helyszínen.",
@@ -21,11 +16,6 @@ const rest = [
     title: "Kerékcsere",
     desc: "Defektnél pótkerék, ha van nála.",
     icon: CircleDot,
-  },
-  {
-    title: "Szállítás",
-    desc: "A-ból B-be, átadással.",
-    icon: Package,
   },
 ] as const;
 
@@ -74,8 +64,8 @@ export function Services() {
               <li
                 key={title}
                 className={`flex gap-4 p-6 sm:p-7 ${
-                  i % 2 === 0 ? "sm:border-r sm:border-zinc-800" : ""
-                } ${i < 2 ? "border-b border-zinc-800 sm:border-b-0" : ""}`}
+                  i % 2 === 0 ? "border-b border-zinc-800 sm:border-b-0 sm:border-r" : ""
+                }`}
               >
                 <Icon
                   className="mt-0.5 h-6 w-6 shrink-0 text-zinc-600"

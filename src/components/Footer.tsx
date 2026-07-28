@@ -1,6 +1,17 @@
-import { SITE_PHONE_TEL } from "@/lib/site";
+import {
+  SITE_EMAIL,
+  SITE_NAME,
+  SITE_PHONE_DISPLAY,
+  SITE_PHONE_TEL,
+  SITE_TAX_NUMBER,
+  siteLegalAddress,
+  siteLegalEntity,
+} from "@/lib/site";
 
 export function Footer() {
+  const entity = siteLegalEntity();
+  const address = siteLegalAddress();
+
   return (
     <footer className="border-t border-zinc-800 bg-[#080809] py-14">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -10,7 +21,15 @@ export function Footer() {
               Auto<span className="text-accent">Mentés</span>
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-zinc-600">
-              Autómentés, bikázás, kerék. Ha nem tudjuk vállalni, megmondjuk egyből.
+              Autómentés, bikázás, kerék — Érd, Budapest és Pest megye, 0–24.
+            </p>
+            <p className="mt-4 text-xs leading-relaxed text-zinc-700">
+              {entity}
+              {SITE_TAX_NUMBER ? ` · Adószám: ${SITE_TAX_NUMBER}` : null}
+              <br />
+              {address}
+              <br />
+              {SITE_PHONE_DISPLAY} · {SITE_EMAIL}
             </p>
           </div>
 
@@ -21,33 +40,28 @@ export function Footer() {
               </p>
               <ul className="mt-4 space-y-2 text-sm text-zinc-400">
                 <li>
-                  <a href="#szolgaltatasok" className="hover:text-white">
+                  <a href="/#szolgaltatasok" className="hover:text-white">
                     Szolgáltatás
                   </a>
                 </li>
                 <li>
-                  <a href="#miert-minket" className="hover:text-white">
+                  <a href="/#miert-minket" className="hover:text-white">
                     Rólunk
                   </a>
                 </li>
                 <li>
-                  <a href="#galeria" className="hover:text-white">
+                  <a href="/#galeria" className="hover:text-white">
                     Munkák
                   </a>
                 </li>
                 <li>
-                  <a href="#kapcsolat" className="hover:text-white">
+                  <a href="/#kapcsolat" className="hover:text-white">
                     Kapcsolat
                   </a>
                 </li>
                 <li>
                   <a href={SITE_PHONE_TEL} className="text-accent hover:underline">
                     Közvetlen hívás
-                  </a>
-                </li>
-                <li>
-                  <a href="/admin" className="hover:text-white">
-                    Admin
                   </a>
                 </li>
               </ul>
@@ -58,17 +72,17 @@ export function Footer() {
               </p>
               <ul className="mt-4 space-y-2 text-sm text-zinc-500">
                 <li>
-                  <a href="#" className="hover:text-zinc-300">
+                  <a href="/adatkezeles" className="hover:text-zinc-300">
                     Adatkezelés
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-zinc-300">
+                  <a href="/aszf" className="hover:text-zinc-300">
                     ÁSZF
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-zinc-300">
+                  <a href="/cookie" className="hover:text-zinc-300">
                     Cookie
                   </a>
                 </li>
@@ -78,7 +92,7 @@ export function Footer() {
         </div>
 
         <p className="mt-14 border-t border-zinc-900 pt-8 text-center text-[11px] text-zinc-700">
-          © {new Date().getFullYear()} AutoMentés — tájékoztató jellegű szöveg; a pontos feltételek egyeztetéskor.
+          © {new Date().getFullYear()} {SITE_NAME} — minden jog fenntartva.
         </p>
       </div>
     </footer>

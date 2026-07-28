@@ -1,18 +1,15 @@
-"use client";
-
-import { useState, FormEvent } from "react";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
-import { SITE_EMAIL, SITE_PHONE_DISPLAY, SITE_PHONE_TEL } from "@/lib/site";
+import { Phone, Mail, MapPin } from "lucide-react";
+import {
+  SITE_ADDRESS_DETAIL,
+  SITE_ADDRESS_SHORT,
+  SITE_EMAIL,
+  SITE_MAP_EMBED,
+  SITE_PHONE_DISPLAY,
+  SITE_PHONE_TEL,
+} from "@/lib/site";
+import { ContactForm } from "@/components/ContactForm";
 
 export function Contact() {
-  const [sent, setSent] = useState(false);
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSent(true);
-    window.setTimeout(() => setSent(false), 4000);
-  }
-
   return (
     <section id="kapcsolat" className="scroll-mt-20 bg-[#0c0c0e] py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -52,89 +49,32 @@ export function Contact() {
               </a>
               <div className="p-5">
                 <span className="font-heading text-xs font-semibold uppercase tracking-widest text-zinc-600">
-                  Telephely
+                  Szolgáltatási terület
                 </span>
                 <p className="mt-2 flex gap-2 text-sm leading-snug text-zinc-400">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-zinc-600" aria-hidden />
-                  1234 Budapest, Példa utca 1. — ide jöjjön a valós cím és a térkép.
+                  <span>
+                    <strong className="text-zinc-300">{SITE_ADDRESS_SHORT}</strong>
+                    <br />
+                    {SITE_ADDRESS_DETAIL}
+                  </span>
                 </p>
               </div>
             </div>
 
-            <div className="mt-4 flex aspect-[16/9] items-center justify-center border border-dashed border-zinc-800 bg-zinc-950/50">
-              <p className="px-4 text-center text-xs text-zinc-600">
-                Google Maps embed helye
-              </p>
+            <div className="mt-4 aspect-[16/9] overflow-hidden border border-zinc-800">
+              <iframe
+                title={`${SITE_ADDRESS_SHORT} — térkép`}
+                src={SITE_MAP_EMBED}
+                className="h-full w-full border-0 grayscale-[0.3] contrast-[1.1]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
           </div>
 
-          <form
-            onSubmit={handleSubmit}
-            className="border border-zinc-800 bg-zinc-950/30 p-6 sm:p-8"
-          >
-            <h3 className="font-heading text-lg font-semibold uppercase tracking-wide text-zinc-200">
-              Üzenet
-            </h3>
-
-            <label className="mt-6 block">
-              <span className="font-heading text-[11px] font-semibold uppercase tracking-widest text-zinc-600">
-                Név
-              </span>
-              <input
-                required
-                name="name"
-                type="text"
-                autoComplete="name"
-                className="mt-1.5 w-full border border-zinc-700 bg-[#0a0a0b] px-3 py-2.5 text-sm text-white placeholder:text-zinc-700 focus:border-accent focus:outline-none"
-                placeholder=""
-              />
-            </label>
-
-            <label className="mt-4 block">
-              <span className="font-heading text-[11px] font-semibold uppercase tracking-widest text-zinc-600">
-                Telefon
-              </span>
-              <input
-                required
-                name="phone"
-                type="tel"
-                autoComplete="tel"
-                className="mt-1.5 w-full border border-zinc-700 bg-[#0a0a0b] px-3 py-2.5 text-sm text-white placeholder:text-zinc-700 focus:border-accent focus:outline-none"
-                placeholder=""
-              />
-            </label>
-
-            <label className="mt-4 block">
-              <span className="font-heading text-[11px] font-semibold uppercase tracking-widest text-zinc-600">
-                Mi a gond?
-              </span>
-              <textarea
-                required
-                name="message"
-                rows={4}
-                className="mt-1.5 w-full resize-y border border-zinc-700 bg-[#0a0a0b] px-3 py-2.5 text-sm text-white placeholder:text-zinc-700 focus:border-accent focus:outline-none"
-                placeholder="Cím, jármű, mi történt"
-              />
-            </label>
-
-            <button
-              type="submit"
-              className="mt-6 inline-flex h-11 w-full items-center justify-center gap-2 bg-accent font-heading text-sm font-bold uppercase tracking-wide text-zinc-950 hover:bg-[#f0d060]"
-            >
-              <Send className="h-4 w-4" aria-hidden />
-              Küldés
-            </button>
-
-            {sent ? (
-              <p className="mt-4 text-center text-sm text-accent" role="status">
-                Megkaptuk — hamarosan visszajelzünk. (Demo)
-              </p>
-            ) : null}
-
-            <p className="mt-4 text-[11px] leading-relaxed text-zinc-700">
-              Éles oldalon ide API vagy űrlapszolgáltatás kell.
-            </p>
-          </form>
+          <ContactForm />
         </div>
       </div>
     </section>

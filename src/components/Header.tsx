@@ -18,7 +18,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-zinc-800 bg-[#0a0a0b]/95 backdrop-blur-sm">
       <div className="mx-auto flex h-[3.25rem] max-w-6xl items-center justify-between gap-3 px-4 sm:h-14 sm:px-6">
         <a
-          href="#"
+          href="/"
           className="group flex shrink-0 items-baseline gap-2"
           onClick={() => setOpen(false)}
         >
@@ -97,7 +97,7 @@ export function Header() {
               href={SITE_PHONE_TEL}
               className="mt-3 flex h-11 items-center justify-center gap-2 bg-accent font-heading text-sm font-bold uppercase tracking-wide text-zinc-950"
             >
-              <Phone className="h-4 w-4" />
+              <Phone className="h-4 w-4" aria-hidden />
               {SITE_PHONE_DISPLAY}
             </a>
           </nav>

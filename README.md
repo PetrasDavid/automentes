@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AutoMentés — marketing weboldal
 
-## Getting Started
+Next.js alapú, egyoldalas autómentő weboldal magyar nyelven. Telefonos és SMS CTA, kapcsolati űrlap, SEO, jogi oldalak.
 
-First, run the development server:
+## Fejlesztés
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Nyisd meg: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Élesítés előtt
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Környezeti változók** — másold az `.env.example` fájlt `.env.local` néven (opcionális):
+   - `NEXT_PUBLIC_SITE_URL` — a végleges domain (pl. `https://automentes.hu`)
+   - `RESEND_API_KEY` — éles e-mail küldéshez ([resend.com](https://resend.com))
+   - `WEB3FORMS_ACCESS_KEY` — alternatíva ([web3forms.com](https://web3forms.com))
+   - `ADMIN_PASSWORD` — erős jelszó az `/admin` felülethez (élesben kötelező)
 
-## Learn More
+   **Kapcsolati űrlap:** alapból FormSubmit-et használ, címzett: `SITE_CONTACT_FORM_TO` a `src/lib/site.ts`-ben. Első tesztnél a FormSubmit aktiváló e-mailt küld — kattints az „Activate Form” linkre, utána működik.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Jogi adatok** — `src/lib/site.ts` (név, telephely, e-mail kitöltve; adószám pótolható):
+   - `SITE_LEGAL_NAME`, `SITE_LEGAL_ADDRESS`, `SITE_TAX_NUMBER`, `SITE_COMPANY_REG`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Galéria fotók** — tedd a képeket a `public/gallery/` mappába, majd add hozzá az elérési utakat a `GALLERY_ITEMS` tömbhöz ugyanebben a fájlban.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **E-mail** — nyilvános és űrlap címzett: `nyistvan76@gmail.com` (`SITE_EMAIL` / `SITE_CONTACT_FORM_TO`).
 
-## Deploy on Vercel
+## Parancsok
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Parancs | Leírás |
+|---------|--------|
+| `npm run dev` | Fejlesztői szerver |
+| `npm run build` | Production build |
+| `npm run start` | Production szerver |
+| `npm run lint` | ESLint |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy (Vercel)
+
+1. GitHub repo csatlakoztatása
+2. Környezeti változók beállítása a Vercel dashboardon
+3. Deploy — a domain automatikusan frissül
+
+## Oldalstruktúra
+
+- `/` — főoldal (Hero, szolgáltatások, galéria, kapcsolat)
+- `/adatkezeles` — adatkezelési tájékoztató
+- `/aszf` — ÁSZF
+- `/cookie` — süti szabályzat
+- `/admin` — belső admin (noindex, jelszóval védett)
+
+## Tech
+
+- Next.js 16 (App Router)
+- React 19, TypeScript, Tailwind CSS 4
+- Lucide ikonok, Recharts (admin)
