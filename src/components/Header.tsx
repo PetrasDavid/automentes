@@ -23,7 +23,7 @@ export function Header() {
           onClick={() => setOpen(false)}
         >
           <span className="font-heading text-lg font-bold uppercase tracking-wide text-white sm:text-xl">
-            Auto
+            Autó
             <span className="text-accent">Mentés</span>
           </span>
           <span className="hidden text-[10px] font-medium uppercase tracking-[0.25em] text-zinc-600 sm:inline">

@@ -2,7 +2,7 @@
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://automentes.vercel.app";
 
-export const SITE_NAME = "AutoMentés";
+export const SITE_NAME = "AutóMentés";
 export const SITE_TAGLINE = "Gyors autómentés 0–24";
 
 export const SITE_PHONE_DISPLAY = "06 20 324 9909";

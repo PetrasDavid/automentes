@@ -18,7 +18,7 @@ export function Footer() {
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
           <div>
             <p className="font-heading text-2xl font-bold uppercase tracking-tight text-white">
-              Auto<span className="text-accent">Mentés</span>
+              Autó<span className="text-accent">Mentés</span>
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-zinc-600">
               Autómentés, bikázás, kerék — Érd, Budapest és Pest megye, 0–24.

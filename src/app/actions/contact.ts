@@ -13,7 +13,7 @@ async function sendViaResend(name: string, phone: string, message: string) {
 
   const { Resend } = await import("resend");
   const resend = new Resend(apiKey);
-  const from = process.env.RESEND_FROM?.trim() ?? "AutoMentés <onboarding@resend.dev>";
+  const from = process.env.RESEND_FROM?.trim() ?? "AutóMentés <onboarding@resend.dev>";
 
   const { error } = await resend.emails.send({
     from,

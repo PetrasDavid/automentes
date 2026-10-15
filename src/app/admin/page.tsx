@@ -3,7 +3,7 @@ import { AdminLoginForm } from "@/components/admin/AdminLoginForm";
 import { AdminDashboard } from "@/components/admin/AdminDashboard";
 
 export const metadata = {
-  title: "Admin | AutoMentés",
+  title: "Admin | AutóMentés",
   robots: { index: false, follow: false },
 };
 

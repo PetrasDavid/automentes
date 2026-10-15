@@ -71,7 +71,7 @@ export function AdminDashboard() {
       <header className="border-b-4 border-accent bg-zinc-950 px-4 py-6 sm:px-8">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
           <div>
-            <p className="font-heading text-xs font-bold uppercase tracking-[0.3em] text-accent">AutoMentés</p>
+            <p className="font-heading text-xs font-bold uppercase tracking-[0.3em] text-accent">AutóMentés</p>
             <h1 className="font-heading text-3xl font-black uppercase tracking-tight sm:text-4xl">Admin irányítópult</h1>
           </div>
           <button

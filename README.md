@@ -1,4 +1,4 @@
-# AutoMentés — marketing weboldal
+# AutóMentés — marketing weboldal
 
 Next.js alapú, egyoldalas autómentő weboldal magyar nyelven. Telefonos és SMS CTA, kapcsolati űrlap, SEO, jogi oldalak.
 
